@@ -30,18 +30,18 @@ fn main() {
   // Check for a specific one.
   // When collections store owned values (String), they can still be
   // queried using references (&str).
-  if !book_reviews.contains_key(&"Les Misérables") {
+  if !book_reviews.contains_key("Les Misérables") {
       println!("We've got {} reviews, but Les Misérables ain't one.",
                book_reviews.len());
   }
 
   // oops, this review has a lot of spelling mistakes, let's delete it.
-  book_reviews.remove(&"The Adventures of Sherlock Holmes");
+  book_reviews.remove("The Adventures of Sherlock Holmes");
 
   // Look up the values associated with some keys.
   let to_find = ["Pride and Prejudice", "Alice's Adventure in Wonderland"];
   for &book in &to_find {
-      match book_reviews.get(&book) {
+      match book_reviews.get(book) {
           Some(review) => println!("{}: {}", book, review),
           None => println!("{} is unreviewed.", book)
       }
